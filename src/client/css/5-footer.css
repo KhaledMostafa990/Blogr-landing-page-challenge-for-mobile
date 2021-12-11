@@ -1,0 +1,51 @@
+footer {
+  max-width: 100%;
+  max-height: 100%;
+  border-top-right-radius: 10rem;
+  background: linear-gradient(to right, hsl(240, 10%, 16%), hsl(240, 10%, 16%));
+
+  padding: 0 10%;
+}
+.footer-menu {
+  padding-top: 7.6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer .logo {
+  flex: 1 0 25%;
+  margin-bottom: 7.5rem;
+}
+.footer .logo img {
+  width: 9rem;
+}
+.footer-menu > table {
+  flex: 3 0 25%;
+}
+.footer-menu th {
+  color: var(--white-text);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding-bottom: 2.9rem;
+  text-align: center;
+}
+.table-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4.6rem;
+}
+.table-links td a {
+  display: inline-block;
+  color: var(--grayish-blue-footer-text);
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: center;
+}
+.table-links td:not(:last-child) a {
+  padding-bottom: 1rem;
+}

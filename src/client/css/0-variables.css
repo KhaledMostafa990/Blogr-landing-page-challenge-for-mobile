@@ -1,0 +1,25 @@
+:root {
+  /*  Primary */
+  --light-red-cta-text: hsl(356, 100%, 66%);
+  --very-light-red-cta-hover: hsl(355, 100%, 74%);
+  --very-dark-blue: hsl(208, 49%, 24%);
+
+  /* Neutral */
+
+  --white-text: hsl(0, 0%, 100%);
+  --grayish-blue-footer-text: hsl(240, 2%, 79%);
+  --very-dark-grayish-blue-body: hsl(207, 13%, 34%);
+  --very-dark-black-blue-footer-background-: hsl(240, 10%, 16%);
+
+  /*  Gradient */
+
+  /* Background gradient - Intro/CTA mobile nav: */
+
+  --very-light-red-cta-mob: hsl(13, 100%, 72%);
+  --light-red: hsl(353, 100%, 62%);
+
+  /* Background gradient - body: */
+
+  --very-dark-gray-blue: hsl(237, 17%, 21%);
+  --very-dark-desaturated-blue: hsl(237, 23%, 32%);
+}

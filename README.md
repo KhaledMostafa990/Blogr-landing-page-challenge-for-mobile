@@ -8,11 +8,11 @@
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-# Frontend Mentor - Blogr landing page solution
+# Frontend Mentor - Blogr landing page challenge
 
 ## Overview
 
-This is a solution to the [Blogr landing page challenge on Frontend Mentor](https://www.frontendmentor.io/solutions/blogr-1440-only-21_ZyPx_b). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Blogr landing page challenge on Frontend Mentor](https://www.frontendmentor.io/solutions/blogr-1440-only-21_ZyPx_b). Frontend Mentor challenges help Devs improve their coding skills by building realistic projects.
 
 ### The challenge
 
@@ -20,7 +20,7 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
-
+- Hamberger menu for Tablet&Mobile devices 
 ### Links
 
 - Solution URL: https://www.frontendmentor.io/solutions/blogr-1440-only-21_ZyPx_b
