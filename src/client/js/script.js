@@ -1,3 +1,10 @@
+const hamburgerWrapper = document.querySelector('.hamburger-btn')
+const closeWrapper = document.querySelector('.close-btn')
+const humbergerMenu = document.querySelector('.nav')
+const primaryNav = document.querySelector('.nav-primary-items')
+const secondaryNavBtn = document.querySelector('.nav-secondary-items') 
+const ctaButtons = document.querySelector('.showcase-cta')
+const headerbg = document.querySelector('.header-bg')
 /**
  *  Helper functions
 */
@@ -9,68 +16,80 @@ const removeClass = (elm,className) => {
     elm.classList.remove(className);
 }
 
-function createImagesElmInsideOtherElm (elm, className, src, appendTo,place) {
-    elm = document.createElement(elm)
-    elm.classList.add(className)
-    elm.src = src;
-    appendTo.insertAdjacentElement(place, elm)
-    return elm;
-}
-
-
-
 // Open/Close menu
 const openAndClose = (openBtn, close, showMenu)=>{ 
     
     openBtn.onclick = () => {
-        addClass(openBtn,'hide-Btn');
-        addClass(close,'show-Btn');
+        addClass(openBtn,'hide-h-Btn');
+        addClass(close,'show-c-Btn');
         addClass(showMenu,'show-menu');
-    }
 
+        setTimeout(() => {
+            headerbg.onmousedown = ()=> {
+                removeClass(openBtn,'hide-h-Btn');
+                removeClass(close,'show-c-Btn');
+                removeClass(showMenu,'show-menu');
+            }
+        }, 200)
+        
+    }
+    
     close.onclick = () => {
-        removeClass(openBtn,'hide-Btn');
-        removeClass(close,'show-Btn');
+        removeClass(openBtn,'hide-h-Btn');
+        removeClass(close,'show-c-Btn');
         removeClass(showMenu,'show-menu');
     }
+ 
 }
+
 // Toggle btn state
-const toggleBtnStatu = (Botton)=> {
+const toggleLoginBtn = (btn)=> {
 
-    Botton.firstElementChild.onmouseover = (e) => {
-        addClass(Botton.lastElementChild,'toggle-statu');
+    btn.firstElementChild.onmouseover = (e) => {
+        addClass(btn.lastElementChild,'btn--login-toggle');
     } 
+    btn.firstElementChild.onmouseleave = (e) => {
+        removeClass(btn.lastElementChild,'btn--login-toggle');
+    }
+}
+const toggleCtaBtn = (btn)=> {
 
-    Botton.firstElementChild.onmouseleave = (e) => {
-        removeClass(Botton.lastElementChild,'toggle-statu');
+    btn.lastElementChild.onmouseover = (e) => {
+        addClass(btn.firstElementChild,'btn--cta-toggle');
+    } 
+    btn.lastElementChild.onmouseleave = (e) => {
+        removeClass(btn.firstElementChild,'btn--cta-toggle');
     }
 }
 
-    function createMenuItems(prymaryMenu) {
+function createMenuItems(prymaryMenu) {
         function createItem(primItemName, seconItems){
-        const primItem = document.createElement('div')
-        primItem.classList.add('menu-items')
-        primItem.innerHTML = 
-        `
-            <div class="item">
-                <h4 href="#">${primItemName}</h4>
-            </div>
-            <div class="sub-menu">
-                <ul>
-                ${seconItems.map(item => `<li><a href='#'>${item}</a></li>`).join('')}
-                </ul>
-            </div>
-        `
-        console.log(primItem)
-        return primItem;
-    }
+            const primItem = document.createElement('div')
+            primItem.classList.add('menu-items')
+            primItem.innerHTML = 
+            `
+                <div class="item">
+                    <h4>${primItemName}</h4>
+                </div>
+                <div class="sub-menu">
+                    <ul>
+                    ${seconItems.map(item => `<li><a href='#${'footer'}'>${item}</a></li>`).join('')}
+                    </ul>
+                </div>
+            `
+            console.log(primItem)
+            return primItem;
+        }
+
         const Items = {
         product:['overview', 'pricing', 'marketplace','features','integrations'],
         company: ['about', 'team', 'blog','careers'],
         contact: ['contact', 'newsletter', 'linkedIn'],
         }
+
         const itemsKeys = Object.keys(Items);
         const itemsValues = Object.values(Items);
+
         for (let i = 0; i <= itemsKeys.length; i++) {
             switch (itemsKeys[i]) {
                 case 'product':
@@ -92,7 +111,13 @@ const toggleBtnStatu = (Botton)=> {
         }
         
         return prymaryMenu;
-
     }
 
-export {createImagesElmInsideOtherElm,openAndClose,toggleBtnStatu, createMenuItems}
+    function handleMenuFunctionalities() {
+        createMenuItems(primaryNav)
+        openAndClose(hamburgerWrapper,closeWrapper,humbergerMenu)
+        toggleLoginBtn(secondaryNavBtn)
+        toggleCtaBtn(ctaButtons)
+    }
+
+export {handleMenuFunctionalities}

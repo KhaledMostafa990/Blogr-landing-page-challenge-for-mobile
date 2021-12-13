@@ -40,31 +40,30 @@
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
   </head>
   <body>
-    <!-- - Hero - -->
+    <!-- - Header - -->
     <header id="header" class="header">
-      <div class="hero-content">
-        <div class="menu-container">
-          <!-- Logo -->
+      <div class="header-bg">
+
+        <div class="nav-wrapper">
+
+          <div class="logo-wrapper"></div>
           <div class="hamburger-btn"></div>
           <div class="close-btn"></div>
 
-          <nav class="nav-bar">
-            <div class="nav-list">
-              <div class="primary-nav">
-                
-              </div>
-          
-              <hr class="under-nav" />
-          
-              <div class="secondary-nav">
-                <li class="cta-link"><a href="#">login</a></li>
-                <li class="cta-link"><a href="#">sign up</a></li>
-              </div>
-            </div>
+          <nav class="nav">
+                <div class="nav-primary-items">
+                  <!-- generated dynamically (js) -->
+                </div>
+            
+                <hr class="between-items" />
+            
+                <ul class="nav-secondary-items">
+                  <li class="btn "><a href="#">login</a></li>
+                  <li class="btn"><a href="#">sign up</a></li>
+                </ul>
           </nav>
-        </div>
 
-        
+        </div>
 
         <div class="showcase-container">
           <h1 class="showcase-heading">
@@ -75,21 +74,19 @@
           </h2>
 
           <div class="showcase-cta">
-            <a href="#" class="btn btn--white-bg">start for free</a>
-            <a href="#" class="btn btn--red-bg">learn more</a>
+            <div class="btn" ><a href="#" >start for free</a></div>
+            <div class="btn" ><a href="#">learn more</a></div>
           </div>
         </div>
       </div>
     </header>
 
     <!-- Fisrt section -->
-    <section class="editor">
+    <section id='editor' class="editor">
       <h2 class="editor-heading">Designed for the future</h2>
 
       <div class="editor-container">
-        <div class="editor-image-container">
-          <!-- editor Image -->
-        </div>
+        <div class="editor-image"></div>
 
         <div class="editor-content">
           <div class="text">
@@ -112,20 +109,20 @@
               categories, sections, format, or flow. With this functionality,
               you're in full control.
             </p>
-          </div>
+          </div> 
         </div>
       </div>
     </section>
 
     <!-- Second section -->
-    <section class="phones">
+    <section id="phones" class="phones">
       <div class="phones-circle">
-        
+        <div class="cir-image"></div>
       </div>
 
       <div class="phones-content">
-        <div class="phones-img">
-     
+        <div class="phones-img-wrapper">
+          <div class="phones-img"></div>
         </div>
 
         <div class="phones-text">
@@ -141,10 +138,10 @@
     </section>
 
     <!-- Third section -->
-    <section class="laptop">
+    <section id='laptop' class="laptop">
       <div class="laptop-container">
         <div class="laptop-img-container">
-
+          <div class="laptop-img"></div>
         </div>
 
         <div class="laptop-content">
@@ -173,7 +170,7 @@
     </section>
 
     <!-- End -->
-    <footer class="footer">
+    <footer id='footer' class="footer">
       <div class="footer-menu">
         <div class="footer-logo">
         </div>
@@ -220,7 +217,7 @@
         <div class="attribution">
           Coded by
           <a href="https://github.com/KhaledMostafa990">Khaled Farghly</a>.
-          Challenge by
+          Design by
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
             >Frontend Mentor</a
           >.
