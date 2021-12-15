@@ -4,9 +4,11 @@
   --typing-delay: 0.3s;
   --blink-speed: 0.75s;
 
+  --transition-speed-03: 0.3s;
   --transition-speed-05: 0.5s;
   --transition-speed-1: 1s;
 
+  --transition-delay-03: 0.3s;
   --transition-delay-05: 0.5s;
   --transition-delay-1: 1s;
   --transition-delay-1-75: 1.75s;
@@ -55,7 +57,9 @@ body {
   width: 100%;
   max-width: 100%;
 }
-
+main {
+  overflow: hidden;
+}
 a {
   cursor: pointer;
   text-decoration: none;
@@ -423,21 +427,17 @@ button {
   background-color: var(--white-text);
   color: var(--light-red-cta-text);
 
+  transform: scaleZ(0.2);
   opacity: 0;
-  position: relative;
-  left: 1.5rem;
-  opacity: 0;
-  animation: toLeft var(--transition-speed-05) ease-in-out
+  animation: zoomIn var(--transition-speed-05) ease-in-out
     var(--transition-delay-2-75) forwards;
 }
 .showcase-cta div:last-child {
   color: var(--white-text);
 
   opacity: 0;
-  position: relative;
-  right: 1.5rem;
-  opacity: 0;
-  animation: toRight var(--transition-speed-05) ease-in-out
+  transform: scaleZ(0.2);
+  animation: zoomIn var(--transition-speed-05) ease-in-out
     var(--transition-delay-2-75) forwards;
 }
 .showcase-cta div:last-child:hover {
@@ -535,9 +535,10 @@ button {
 .cir-image {
   background-image: url("../images/bg-pattern-circles.svg");
   background-repeat: no-repeat;
-  background-size: 150%, 100%;
-  background-position-y: -23rem;
-  background-position-x: -12rem;
+  background-size: 175%, 100%;
+  background-position-y: -6rem;
+  background-position-x: -10rem;
+  opacity: 0;
   width: 100%;
   height: 1018px;
 }
@@ -560,9 +561,10 @@ button {
 }
 .phones-img-wrapper {
   width: 100%;
-  width: 100%;
+  max-width: 100%;
   position: absolute;
-  top: -18.75rem;
+  top: -10.75rem;
+  opacity: 0;
 }
 .phones-img {
   background-image: url("../images/illustration-phones.svg");
@@ -597,7 +599,6 @@ button {
   color: var(--white-text);
   padding: 0 2rem;
   text-align: center;
-  opacity: 0.7;
 }
 
 /* laptop section */
@@ -719,105 +720,4 @@ footer {
 }
 .attribution a {
   color: var(--white-text);
-}
-/* 
-@media screen and (min-width: 550px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 280%, 100%;
-    background-position: 35% 40%, 0% 0%;
-  }
-  .laptop-img-container img {
-    width: 100%;
-  }
-  .phones-img img {
-    width: 90%;
-    height: 37.5rem;
-  }
-}
-@media screen and (min-width: 768px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 250%, 100%;
-    background-position: 35% 45%, 0% 0%;
-  }
-  .editor-image-container .editor-img {
-    height: 40rem;
-  }
-  .phones-img img {
-    width: 80%;
-    height: 35rem;
-  }
-  .laptop-img-container img {
-    width: 90%;
-  }
-}
-@media screen and (min-width: 992px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 200%, 100%;
-    background-position: 25% 50%, 0% 0%;
-  }
-  .showcase-heading {
-    font-size: 4.5rem;
-  }
-  .showcase-cta {
-    width: 40%;
-  }
-  .editor-heading {
-    font-size: 3.5rem;
-  }
-  .editor-image-container .editor-img {
-    height: 45rem;
-  }
-  .phones-circle {
-    height: 50rem;
-  }
-  .phones-img img {
-    width: 70%;
-    height: 35rem;
-  }
-  .phones-text h2 {
-    font-size: 5rem;
-  }
-  .laptop-content .text h3 {
-    font-size: 3rem;
-  }
-}  */
-@keyframes toLeft {
-  to {
-    opacity: 1;
-    left: 0;
-  }
-}
-@keyframes toRight {
-  to {
-    opacity: 1;
-    right: 0;
-  }
-}
-@keyframes tobottom {
-  to {
-    opacity: 1;
-    bottom: 0;
-  }
-}
-@keyframes toTop {
-  to {
-    opacity: 0.75;
-    top: 0;
-  }
-}
-@keyframes dropMenu {
-  to {
-    opacity: 1;
-    bottom: 0;
-    left: 0;
-  }
 }

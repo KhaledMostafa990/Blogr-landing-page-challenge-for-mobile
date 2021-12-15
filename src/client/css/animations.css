@@ -1,0 +1,84 @@
+.animated-h {
+  position: relative;
+  opacity: 0;
+  top: 2rem;
+}
+.appear-to-top {
+  animation: toTop var(--transition-speed-05) ease-in-out forwards;
+}
+.animated-img {
+  position: relative;
+  opacity: 0;
+  left: 4rem;
+}
+.appear-to-left {
+  animation: toLeft var(--transition-speed-03) ease-in-out
+    var(--transition-speed-03) forwards;
+}
+p {
+  position: relative;
+  opacity: 0;
+  right: 2rem;
+}
+.appear-to-right {
+  animation: toRight var(--transition-speed-03) ease-in-out
+    var(--transition-speed-03) forwards;
+}
+.zoom-out-img {
+  animation: zoomOutimg var(--transition-speed-03) ease-in-out
+    var(--transition-delay-05) forwards;
+}
+@keyframes zoomOutimg {
+  to {
+    opacity: 1;
+    background-size: 150%, 100%;
+    background-position-y: -12rem;
+  }
+}
+.appear-to-top-img {
+  animation: toTopimg var(--transition-speed-03) ease-in-out
+    var(--transition-delay-05) forwards;
+}
+@keyframes toTopimg {
+  to {
+    opacity: 1;
+    top: -18.75rem;
+  }
+}
+@keyframes toLeft {
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+@keyframes toRight {
+  to {
+    opacity: 1;
+    right: 0;
+  }
+}
+@keyframes tobottom {
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+@keyframes toTop {
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes dropMenu {
+  to {
+    opacity: 1;
+    bottom: 0;
+    left: 0;
+  }
+}
+@keyframes zoomIn {
+  to {
+    transform: scaleZ(1);
+    opacity: 1;
+  }
+}

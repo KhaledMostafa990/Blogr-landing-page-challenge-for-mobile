@@ -5,7 +5,14 @@ const primaryNav = document.querySelector('.nav-primary-items')
 const secondaryNavBtn = document.querySelector('.nav-secondary-items') 
 const ctaButtons = document.querySelector('.showcase-cta')
 const mainPage = document.querySelector('main')
-const typingHeader = document.querySelector('.typing-animation')
+// const typingHeader = document.querySelector('.typing-animation')
+// const sections = document.querySelectorAll('section')
+const headers = document.querySelectorAll('.animated-h')
+const mainImg = document.querySelectorAll('.animated-img')
+const paragraphs = document.querySelectorAll('p')
+const phoneimg = document.querySelector('.phones-img-wrapper')
+const phonecircleimg = document.querySelector('.cir-image')
+
 /**
  *  Helper functions
 */
@@ -25,7 +32,6 @@ let removeScrollTop = (btn) => {
 
 // Open/Close menu
 const openAndClose = (openBtn, close, showMenu)=>{ 
-    
     document.addEventListener('click', (e)=>{
         if ( e.target === openBtn || e.target === showMenu
             || e.target === primaryNav 
@@ -34,7 +40,6 @@ const openAndClose = (openBtn, close, showMenu)=>{
             addClass(openBtn,'hide-h-Btn')
             addClass(close,'show-c-Btn')
             addClass(showMenu,'show-menu')
-         
         }else {
             removeClass(openBtn,'hide-h-Btn')
             removeClass(close,'show-c-Btn')
@@ -161,6 +166,46 @@ function handleScrollTopBtn() {
 //         }, 5000);
 // }
 
+const animateSectionsOnScroll = new IntersectionObserver (
+    (entries, animateSectionsOnScroll ) => {
+        entries.forEach((entry)=> {
+            if(!entry.isIntersecting) {
+                removeClass(entry.target, 'appear-to-top')
+                removeClass(entry.target, 'appear-to-left')
+                removeClass(entry.target, 'appear-to-right')
+                removeClass(entry.target, 'zoom-out-img')
+                removeClass(entry.target, 'appear-to-top-img')
+                return;
+            } else {
+                if (entry.target.classList.contains('animated-h')) {
+                    addClass(entry.target, 'appear-to-top')
+                }else if(entry.target.classList.contains('animated-img')){
+                    addClass(entry.target, 'appear-to-left')
+                }else if(entry.target.nodeName.toLowerCase() === 'p'){
+                    addClass(entry.target, 'appear-to-right')
+                }else if(entry.target.classList.contains('cir-image')){
+                    addClass(entry.target, 'zoom-out-img')
+                }else if(entry.target.classList.contains('phones-img-wrapper')){
+                    addClass(entry.target, 'appear-to-top-img')
+                }
+            }
+        })
+
+} ,{ // Options
+    root:null,
+    threshold:0,
+    rootMargin:"0px" })
+headers.forEach((header)=> {
+    animateSectionsOnScroll.observe(header)
+})
+paragraphs.forEach((p)=> {
+    animateSectionsOnScroll.observe(p)
+})
+mainImg.forEach((img)=> {
+    animateSectionsOnScroll.observe(img)
+})
+animateSectionsOnScroll.observe(phoneimg)
+animateSectionsOnScroll.observe(phonecircleimg)
 // let afterSlidingTagRule = getRuleWithSelector('.typing-animation::after');
 function handlePageFunctionality() {
     createMenuItems(primaryNav)
