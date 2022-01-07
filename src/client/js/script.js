@@ -1,17 +1,17 @@
 const hamburgerWrapper = document.querySelector('.hamburger-btn')
 const closeWrapper = document.querySelector('.close-btn')
-const humbergerMenu = document.querySelector('.nav')
-const primaryNav = document.querySelector('.nav-primary-items')
-const secondaryNavBtn = document.querySelector('.nav-secondary-items') 
-const ctaButtons = document.querySelector('.showcase-cta')
+const humbergerMenu = document.querySelector('.menu__content')
+const primaryMenuItems = document.querySelector('.menu__primary-items')
+const primaryNavItems = document.querySelector('.nav__primary-items')
+const secondaryMenuBtn = document.querySelector('.menu__secondary-items') 
+const secondaryNavBtn = document.querySelector('.nav__secondary-items') 
+const ctaButtons = document.querySelector('.hero__cta')
 const mainPage = document.querySelector('main')
-// const typingHeader = document.querySelector('.typing-animation')
-// const sections = document.querySelectorAll('section')
+const typingHeader = document.querySelector('.typing-animation')
 const headers = document.querySelectorAll('.animated-h')
-const mainImg = document.querySelectorAll('.animated-img')
+const editorImg = document.querySelectorAll('.animated-img-left')
+const laptopImg = document.querySelectorAll('.animated-img-right')
 const paragraphs = document.querySelectorAll('p')
-const phoneimg = document.querySelector('.phones-img-wrapper')
-const phonecircleimg = document.querySelector('.cir-image')
 
 /**
  *  Helper functions
@@ -29,26 +29,6 @@ let addScrollTop = (btn) => {
 let removeScrollTop = (btn) => {
     btn.style.cssText = `display: none; `
 }
-
-// Open/Close menu
-const openAndClose = (openBtn, close, showMenu)=>{ 
-    document.addEventListener('click', (e)=>{
-        if ( e.target === openBtn || e.target === showMenu
-            || e.target === primaryNav 
-            || e.target.classList.contains('menu-items')
-        ) {
-            addClass(openBtn,'hide-h-Btn')
-            addClass(close,'show-c-Btn')
-            addClass(showMenu,'show-menu')
-        }else {
-            removeClass(openBtn,'hide-h-Btn')
-            removeClass(close,'show-c-Btn')
-            removeClass(showMenu,'show-menu')
-        }
-    })
-  
-}
-
 // Toggle btn state
 const toggleLoginBtn = (btn)=> {
 
@@ -73,7 +53,7 @@ const toggleCtaBtn = (btn)=> {
 function createMenuItems(prymaryMenu) {
     function createItem(primItemName, seconItems){
         const primItem = document.createElement('div')
-        primItem.classList.add('menu-items')
+        primItem.classList.add('items')
         primItem.innerHTML = 
         `
             <div class="item">
@@ -88,11 +68,10 @@ function createMenuItems(prymaryMenu) {
         // console.log(primItem)
         return primItem;
     }
-
     const Items = {
-    product:['overview', 'pricing', 'marketplace','features','integrations'],
-    company: ['about', 'team', 'blog','careers'],
-    contact: ['contact', 'newsletter', 'linkedIn'],
+        product:['overview', 'pricing', 'marketplace','features','integrations'],
+        company: ['about', 'team', 'blog','careers'],
+        contact: ['contact', 'newsletter', 'linkedIn'],
     }
 
     const itemsKeys = Object.keys(Items)
@@ -115,8 +94,28 @@ function createMenuItems(prymaryMenu) {
             break
         }  
     }
-        
     return prymaryMenu;
+}
+
+// Open/Close menu
+const openAndClose = (openBtn, close, showMenu)=>{ 
+    document.addEventListener('click', (e)=>{
+        if ( e.target === openBtn || e.target === showMenu
+            || e.target === primaryMenuItems 
+            || e.target.classList.contains('items')
+            || e.target.classList.contains('item')
+            || e.target.nodeName.toLowerCase() === 'h4'
+        ) {
+            addClass(openBtn,'hide-h-Btn')
+            addClass(close,'show-c-Btn')
+            addClass(showMenu,'show-menu')
+        }else {
+            removeClass(openBtn,'hide-h-Btn')
+            removeClass(close,'show-c-Btn')
+            removeClass(showMenu,'show-menu')
+        }
+    })
+  
 }
 
 // Handle Scroll Top button
@@ -132,40 +131,25 @@ function handleScrollTopBtn() {
             removeScrollTop(scrollToTopBtn)
         }
     })
-
     scrollToTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
     })
 }
 
-// Get Pseudo-element 
-// function getRuleWithSelector(selector) {
-//     // console.log(document.styleSheets)
-//     // let numSheets = document.styleSheets.length
-//     // let numRules
-//     // let ruleIndex
-//     let selectorRule;
-//       // for (let sheetIndex = 0; sheetIndex < numSheets; sheetIndex++) {
-//         // without knowing the styleSheets and rule numbers we'll need more than 3s to get the element
-//         setTimeout(() => {
-//             // numRules = document.styleSheets[2].cssRules.length;
-//             // for (ruleIndex = 0; ruleIndex < numRules; ruleIndex++) {
-//                 if (document.styleSheets[2].cssRules[51].selectorText === selector) {
-//                     selectorRule = document.styleSheets[2].cssRules[51]
-//                     console.log(selectorRule)
-//                     return selectorRule
-//                 }
-//             // }
-//         }, 300);
-
-
-//         // }
-//         // If we get this far, then the rule doesn't exist.
-//         setTimeout(() => {
-//             selectorRule.style.display = 'none'
-//         }, 5000);
-// }
-
+// Get Pseudo-element to disable an element
+function getRuleWithSelector(selector) {
+    // without knowing the styleSheets and rule numbers we'll need more than 3s to get the element
+    // Also using for loop to get the numbers matching with selector Propaply will fail in certain cases this project one of them
+        // console.log(document.styleSheets[2].cssRules[49].selectorText)
+        setTimeout(() => {                    
+        if (document.styleSheets[2].cssRules[49].selectorText === selector) {
+            let selectorRule = document.styleSheets[2].cssRules[49]
+            // console.log(selectorRule)
+                return selectorRule ? selectorRule.style.display = 'none' : null
+            }
+        }, 5000);
+}
+// Animation on scrolling
 const animateSectionsOnScroll = new IntersectionObserver (
     (entries, animateSectionsOnScroll ) => {
         entries.forEach((entry)=> {
@@ -174,19 +158,18 @@ const animateSectionsOnScroll = new IntersectionObserver (
                 removeClass(entry.target, 'appear-to-left')
                 removeClass(entry.target, 'appear-to-right')
                 removeClass(entry.target, 'zoom-out-img')
-                removeClass(entry.target, 'appear-to-top-img')
                 return;
             } else {
                 if (entry.target.classList.contains('animated-h')) {
                     addClass(entry.target, 'appear-to-top')
-                }else if(entry.target.classList.contains('animated-img')){
+                }else if(entry.target.classList.contains('animated-img-left')){
                     addClass(entry.target, 'appear-to-left')
+                }else if(entry.target.classList.contains('animated-img-right')){
+                    addClass(entry.target, 'appear-to-right')
                 }else if(entry.target.nodeName.toLowerCase() === 'p'){
                     addClass(entry.target, 'appear-to-right')
-                }else if(entry.target.classList.contains('cir-image')){
+                }else if(entry.target.classList.contains('circle-img')){
                     addClass(entry.target, 'zoom-out-img')
-                }else if(entry.target.classList.contains('phones-img-wrapper')){
-                    addClass(entry.target, 'appear-to-top-img')
                 }
             }
         })
@@ -201,19 +184,24 @@ headers.forEach((header)=> {
 paragraphs.forEach((p)=> {
     animateSectionsOnScroll.observe(p)
 })
-mainImg.forEach((img)=> {
+editorImg.forEach((img)=> {
     animateSectionsOnScroll.observe(img)
 })
-animateSectionsOnScroll.observe(phoneimg)
-animateSectionsOnScroll.observe(phonecircleimg)
+laptopImg.forEach((img)=> {
+    animateSectionsOnScroll.observe(img)
+})
+
 // let afterSlidingTagRule = getRuleWithSelector('.typing-animation::after');
+// getRuleWithSelector(".typing-animation::after")
 function handlePageFunctionality() {
-    createMenuItems(primaryNav)
+    createMenuItems(primaryMenuItems)
+    createMenuItems(primaryNavItems)
     openAndClose(hamburgerWrapper,closeWrapper,humbergerMenu)
+    toggleLoginBtn(secondaryMenuBtn)
     toggleLoginBtn(secondaryNavBtn)
     toggleCtaBtn(ctaButtons)
+    getRuleWithSelector('.typing-animation::after')
     handleScrollTopBtn()
-    // getRuleWithSelector(".typing-animation::after")
 }
 
 export {handlePageFunctionality}

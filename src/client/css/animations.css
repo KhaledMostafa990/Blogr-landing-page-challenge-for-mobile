@@ -3,47 +3,31 @@
   opacity: 0;
   top: 2rem;
 }
-.appear-to-top {
-  animation: toTop var(--transition-speed-05) ease-in-out forwards;
-}
-.animated-img {
+.animated-img-left {
   position: relative;
   opacity: 0;
   left: 4rem;
 }
-.appear-to-left {
-  animation: toLeft var(--transition-speed-03) ease-in-out
-    var(--transition-speed-03) forwards;
+.animated-img-right {
+  position: relative;
+  opacity: 0;
+  right: 4rem;
 }
 p {
   position: relative;
   opacity: 0;
   right: 2rem;
 }
+.appear-to-top {
+  animation: toTop var(--transition-speed-05) ease-in-out forwards;
+}
+.appear-to-left {
+  animation: toLeft var(--transition-speed-03) ease-in-out
+    var(--transition-speed-03) forwards;
+}
 .appear-to-right {
   animation: toRight var(--transition-speed-03) ease-in-out
     var(--transition-speed-03) forwards;
-}
-.zoom-out-img {
-  animation: zoomOutimg var(--transition-speed-03) ease-in-out
-    var(--transition-delay-05) forwards;
-}
-@keyframes zoomOutimg {
-  to {
-    opacity: 1;
-    background-size: 150%, 100%;
-    background-position-y: -12rem;
-  }
-}
-.appear-to-top-img {
-  animation: toTopimg var(--transition-speed-03) ease-in-out
-    var(--transition-delay-05) forwards;
-}
-@keyframes toTopimg {
-  to {
-    opacity: 1;
-    top: -18.75rem;
-  }
 }
 @keyframes toLeft {
   to {

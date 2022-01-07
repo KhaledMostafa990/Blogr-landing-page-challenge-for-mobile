@@ -1,70 +1,59 @@
-/* 
-@media screen and (min-width: 550px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 280%, 100%;
-    background-position: 35% 40%, 0% 0%;
-  }
-  .laptop-img-container img {
-    width: 100%;
-  }
-  .phones-img img {
-    width: 90%;
-    height: 37.5rem;
-  }
-}
 @media screen and (min-width: 768px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 250%, 100%;
-    background-position: 35% 45%, 0% 0%;
+  h2 {
+    font-size: 3.2rem;
   }
-  .editor-image-container .editor-img {
-    height: 40rem;
+  h3 {
+    font-size: 2.4rem;
   }
-  .phones-img img {
-    width: 80%;
-    height: 35rem;
+  .header__bg {
+    background-size: 350%, 100%;
+    background-position: 40% 46%, 0% 0%;
   }
-  .laptop-img-container img {
-    width: 90%;
+  .hero__heading {
+    font-size: 3.4rem;
+  }
+  .editor__container {
+    flex-direction: row-reverse;
+  }
+  .editor__content {
+    padding: 0 0 0 2rem;
+  }
+  .editor__content .text {
+    align-items: start;
+    text-align: start;
+    margin-bottom: 1.5rem;
+  }
+  .editor__content .text h3 span {
+    display: inline;
+  }
+  .phones {
+    margin-top: 12rem;
+  }
+  .phones__img {
+    top: 80%;
+    left: 2%;
+    transform: translate(0%, -50%);
+    width: min(100%, 400px);
+  }
+  .phones__container {
+    height: 32rem;
+  }
+  .circle-img {
+    width: min(100%, 1014px);
+  }
+  .phones__text {
+    width: 420px;
+    transform: translate(0%, -10%);
+  }
+  .laptop__container {
+    flex-direction: row;
+  }
+  .laptop__content {
+    padding: 0 4rem 0 0;
+  }
+  .laptop__content .text {
+    align-items: start;
+    text-align: start;
+    margin-bottom: 1.5rem;
   }
 }
-@media screen and (min-width: 992px) {
-  .header-content {
-    background-image: url(../images/bg-pattern-intro.svg),
-      linear-gradient(135deg, var(--very-light-red-cta-mob), var(--light-red));
-    background-repeat: no-repeat;
-    background-size: 200%, 100%;
-    background-position: 25% 50%, 0% 0%;
-  }
-  .showcase-heading {
-    font-size: 4.5rem;
-  }
-  .showcase-cta {
-    width: 40%;
-  }
-  .editor-heading {
-    font-size: 3.5rem;
-  }
-  .editor-image-container .editor-img {
-    height: 45rem;
-  }
-  .phones-circle {
-    height: 50rem;
-  }
-  .phones-img img {
-    width: 70%;
-    height: 35rem;
-  }
-  .phones-text h2 {
-    font-size: 5rem;
-  }
-  .laptop-content .text h3 {
-    font-size: 3rem;
-  }
-}  */

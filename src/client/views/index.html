@@ -3,64 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A modern publishing platform/n Grow your audience and build your
+    <meta name="description" content="A modern publishing platform Grow your audience and build your
 online brand">
-    <link
+    <!-- <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./favicon-32x32.png"
-    />
+      href="../images/favicon-32x32.png"
+    /> -->
 
-    <title>Frontend Mentor | Blogr</title>
+    <title>Blogr Landing page</title>
 
     <!--  Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap"
-      rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap" rel="stylesheet"
     />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:ital,wght@0,500;0,700;1,400&display=swap"
-      rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet"
     />
   </head>
   <body>
     <!-- - Header - -->
     <header id="header" class="header">
-      <div class="header-bg">
+      <div class="header__bg">
+        <!-- Menu -->
+        <div class="menu">
+          <a href="#"><div class="header__logo"></div></a>
 
-        <div class="nav-wrapper">
-
-          <a href="#"><div class="logo-wrapper"></div></a>
           <div class="hamburger-btn"></div>
           <div class="close-btn"></div>
 
-          <nav class="nav">
-                <div class="nav-primary-items">
-                  <!-- generated dynamically (js) -->
+          <div class="menu__content">
+                <div class="menu__primary-items">
+                  <!-- generated dynamically (create items inside another secondary items) (js) -->
                 </div>
             
                 <hr class="between-items" />
             
-                <ul class="nav-secondary-items">
+                <ul class="menu__secondary-items">
                   <li class="btn "><a href="#">login</a></li>
                   <li class="btn"><a href="#">sign up</a></li>
                 </ul>
-          </nav>
-
+          </div>
         </div>
 
-        <div class="showcase-container">
-          <div class="showcase-heading">
+        <!-- NavBar -->
+        <nav class="nav">
+          <a href="#">
+            <div class="header__logo"></div>
+          </a>
+        
+          <div class="nav__content">
+            <div class="nav__primary-items">
+              <!-- generated dynamically (create items inside another secondary items) (js) -->
+            </div>
+                
+            <ul class="nav__secondary-items">
+              <li class="btn "><a href="#">login</a></li>
+              <li class="btn"><a href="#">sign up</a></li>
+            </ul>
+          </div>
+        
+        </nav>
+        <!-- Hero -->
+        <div class="hero">
+          <div class="hero__heading">
             <div> <span> A </span> <span class="typing-animation">modern</span> </div>
             <span>publishing platform</span>
           </div>
-          <h2 class="showcase-p">
+          <h2 class="hero__p">
             Grow your audience and build your <span>online brand</span>
           </h2>
 
-          <div class="showcase-cta">
+          <div class="hero__cta">
             <div class="btn" ><a href="#" >start for free</a></div>
             <div class="btn" ><a href="#">learn more</a></div>
           </div>
@@ -68,16 +82,22 @@ online brand">
       </div>
     </header>
 
+    <!-- Main sections -->
     <main>
-    <!-- Fisrt section -->
-    <section id='editor' class="editor">
-      <h2 class="editor-heading animated-h">Designed for the future</h2>
 
-      <div class="editor-container">
-        <div class="editor-image animated-img"></div>
+    <section id='editor' class="editor flex-column">
+      <h2 class="editor__header animated-h">Designed for the future</h2>
+      
+      <div class="editor__img-desktop animated-img-left"></div>
+      
+      <div class="editor__container flex-column">
 
-        <div class="editor-content">
-          <div class="text">
+        <div class="editor__img-wrapper">
+          <div class="editor__img-mobile animated-img-left"></div>
+        </div>
+
+        <div class="editor__content">
+          <div class="text flex-column">
             <h3 class='animated-h'><span>Introducing an </span> extensible editor</h3>
             <p>
               Blogr features an exceedingly intuitive interface which lets you
@@ -89,7 +109,7 @@ online brand">
             </p>
           </div>
 
-          <div class="text">
+          <div class="text flex-column">
             <h3 class='animated-h'><span>Robust content</span> management</h3>
             <p>
               Flexible content management enables users to easily move through
@@ -102,18 +122,14 @@ online brand">
       </div>
     </section>
 
-    <!-- Second section -->
+    <!-- Phones section -->
     <section id="phones" class="phones">
-      <div class="phones-circle">
-        <div class="cir-image"></div>
-      </div>
+      <div class="phones__img"></div>
 
-      <div class="phones-content">
-        <div class="phones-img-wrapper">
-          <div class="phones-img"></div>
-        </div>
-
-        <div class="phones-text">
+      <div class="phones__container"> 
+          <div class="circle-img"></div>
+      
+        <div class="phones__text flex-column">
           <h2 class='animated-h'>State of the Art Infrastructure</h2>
           <p>
             With reliability and speed in mind, worldwide data centers provide
@@ -125,15 +141,18 @@ online brand">
       </div>
     </section>
 
-    <!-- Third section -->
+    <!-- Laptop section -->
     <section id='laptop' class="laptop">
-      <div class="laptop-container">
-        <div class="laptop-img-container animated-img">
-          <div class="laptop-img"></div>
+      <div class="laptop__container flex-column">
+
+      <div class="laptop__img-desktop animated-img-right"></div>
+
+        <div class="laptop__img-wrapper animated-img-right">
+          <div class="laptop__img-mobile"></div>
         </div>
 
-        <div class="laptop-content">
-          <div class="text">
+        <div class="laptop__content">
+          <div class="text flex-column">
             <h3 class='animated-h'>Free, open, simple</h3>
             <p>
               Blogr is a free and open source application backed by a large
@@ -145,7 +164,7 @@ online brand">
             </p>
           </div>
 
-          <div class="text">
+          <div class="text flex-column">
             <h3 class='animated-h'>Powerful tooling</h3>
             <p>
               Batteries included. We built a simple and straightforward CLI tool
@@ -159,8 +178,8 @@ online brand">
   </main>
     <!-- End -->
     <footer id='footer' class="footer">
-      <div class="footer-menu">
-        <a href="#"><div class="footer-logo"></div></a>
+      <div class="footer__menu">
+        <a href="#"><div class="footer__logo"></div></a>
 
         <table>
           <tr>
@@ -201,14 +220,15 @@ online brand">
           </tr>
         </table>
 
-        <div class="attribution">
-          Coded by
-          <a href="https://github.com/KhaledMostafa990">Khaled Farghly</a>.
-          Design by
-          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-            >Frontend Mentor</a
-          >.
-        </div>
+      </div>
+
+      <div class="attribution">
+        Coded by
+        <a href="https://github.com/KhaledMostafa990">Khaled Farghly</a>.
+        Design by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >.
       </div>
     </footer>
     <!-- <script src="script.js"></script> -->
