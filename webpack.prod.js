@@ -19,7 +19,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             filename: "index.html",
             template: path.resolve(__dirname ,'./src/client/views/index.html'),
-            favicon:'../images/favicon-32x32.png'
+            favicon:'./src/client/images/favicon-32x32.png'
         }),
          new MiniCssExtractPlugin({filename:'[name].css'})
     ],
